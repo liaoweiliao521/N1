@@ -100,7 +100,7 @@ jobs:
         #sudo ./mk_rk3328_l1pro_basic.sh
         #sudo ./mk_rk3328_l1pro_plus.sh
         #sudo ./mk_rk3328_l1pro_plusplus.sh
-        #sudo ./mk_s905d_n1.sh
+        sudo ./mk_s905d_n1.sh
         sudo ./mk_s905d_n1_basic.sh
         sudo ./mk_s905d_n1_plus.sh
         sudo ./mk_s905d_n1_plusplus.sh
