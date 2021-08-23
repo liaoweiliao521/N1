@@ -9,8 +9,8 @@ on:
       - master
     paths:
       - 'AX6/AX6.config'
-  schedule:
-    - cron: 0 16 * * *
+#  schedule:
+#    - cron: 0 16 * * *
   # watch:
   #   types: started
 
