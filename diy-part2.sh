@@ -16,6 +16,7 @@ rm -rf package/lean/luci-app-wrtbwmon
 rm -rf feeds/packages/net/smartdns
 #添加额外软件包
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+git clone https://github.com/halldong/luci-app-speederv2.git package/luci-app-speederv2
 
 #replace mirrors
 #rm -rf ./include
