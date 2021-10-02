@@ -32,7 +32,7 @@ env:
   FILE_NAME: Files4Build
   PRODUCT_NAME: ARMv8_FOL
 jobs:
-   build:
+  build:
     runs-on: ubuntu-18.04
     if: github.event.repository.owner.id == github.event.sender.id
 
