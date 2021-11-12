@@ -180,7 +180,7 @@ jobs:
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: main
-        token: ${{ secrets.RELEASES_TOKEN }}
+        token: ${{ secrets.REPO_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
           默认IP： 192.168.1.1 默认密码： password
