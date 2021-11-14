@@ -128,6 +128,7 @@ jobs:
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: vplus_beikeyun_l1pro_s922x_s922x-n2_s905x3_s905d
+        KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/trunk/opt/kernel
         KERNEL_VERSION_NAME: 5.10.70_5.4.150
         KERNEL_AUTO_LATEST: true
         #OPENWRT_VER: R21.7.26
