@@ -67,6 +67,12 @@ git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-ope
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
+# 拉取sensecluci-app-udp2raw-control插件
+git clone https://github.com/sensec/openwrt-udp2raw.git package/openwrt-udp2raw
+
+# 拉取sensecluci-app-udp2raw插件
+git clone https://github.com/sensec/luci-app-udp2raw.git package/luci-app-udp2raw
+
 #添加smartdns
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
