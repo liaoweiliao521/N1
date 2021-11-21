@@ -73,6 +73,10 @@ git clone https://github.com/sensec/openwrt-udp2raw.git package/openwrt-udp2raw
 # 拉取sensecluci-app-udp2raw插件
 git clone https://github.com/sensec/luci-app-udp2raw.git package/luci-app-udp2raw
 
+#添加argon-config 使用 最新argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+
 #添加smartdns
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
