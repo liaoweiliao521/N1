@@ -139,6 +139,9 @@ jobs:
         KERNEL_VERSION_NAME: 5.10.70_5.4.150
         KERNEL_AUTO_LATEST: true
         #OPENWRT_VER: R21.7.26
+        SW_FLOWOFFLOAD:	1
+        SFE_FLOW:	1
+        HW_FLOWOFFLOAD::	1
         ENABLE_WIFI_K504: 1
         ENABLE_WIFI_K510: 1
 
