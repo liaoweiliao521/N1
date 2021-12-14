@@ -5,7 +5,7 @@
 # Source code repository: https://github.com/coolsnowwolf/lede / Branch: master
 #========================================================================================================================
 
-name: Build OpenWrt for Armvirt
+name: Build OpenWrt FOL for Armvirt
 
 on:
   repository_dispatch:
