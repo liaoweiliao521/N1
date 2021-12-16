@@ -102,15 +102,6 @@ jobs:
       if: (!cancelled())
       run: df -hT
 
-    - name: Upload OpenWrt bin directory to Actions
-      uses: actions/upload-artifact@v2
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
-      with:
-        name: armvirt_64_bin_${{ env.FILE_DATE }}
-        path: openwrt/bin
-        retention-days: ${{ env.RECENT_LASTEST }}
-        if-no-files-found: ignore
-
     - name: Organize armvirt files
       id: organize
       if: steps.compile.outputs.status == 'success' && !cancelled()
@@ -121,6 +112,15 @@ jobs:
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
+        
+    - name: Upload OpenWrt bin directory to Actions
+      uses: actions/upload-artifact@v2
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+      with:
+        name: armvirt_64_bin_${{ env.FILE_DATE }}
+        path: openwrt/bin/targets/*/*/bin.tar.gz
+        retention-days: ${{ env.RECENT_LASTEST }}
+        if-no-files-found: ignore
         
     - name: Upload armvirt directory to Actions
       uses: actions/upload-artifact@v2
