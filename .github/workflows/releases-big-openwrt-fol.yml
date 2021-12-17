@@ -5,7 +5,7 @@
 # Source code repository: https://github.com/coolsnowwolf/lede / Branch: master
 #========================================================================================================================
 
-name: Build OpenWrt for Armvirt
+name: Build OpenWrt FOL for Armvirt
 
 on:
   repository_dispatch:
@@ -17,7 +17,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: aarch64/natuof.config
+  CONFIG_FILE: aarch64/ARMv8_FOL.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -136,7 +136,7 @@ jobs:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: s905d
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/trunk/opt/kernel
-        KERNEL_VERSION_NAME: 5.10.70_5.4.150
+        KERNEL_VERSION_NAME: 5.10.70_5.4.150_5.15.6
         KERNEL_AUTO_LATEST: true
         #OPENWRT_VER: R21.7.26
         SW_FLOWOFFLOAD:	1
@@ -155,7 +155,7 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        tag: openwrt_armvirt_${{ env.PACKAGED_OUTPUTDATE }}
+        tag: openwrt_armvirt_FOL_${{ env.PACKAGED_OUTPUTDATE }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
         token: ${{ secrets.RELEASES_TOKEN }}
