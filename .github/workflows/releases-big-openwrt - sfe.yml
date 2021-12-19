@@ -158,7 +158,7 @@ jobs:
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         tag: openwrt_armvirt_SFE_${{ env.PACKAGED_OUTPUTDATE }}
-        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/* && ${{ env.FIRMWARE }}/*
         allowUpdates: true
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
