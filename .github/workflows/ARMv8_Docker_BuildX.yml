@@ -9,7 +9,7 @@ on:
       - master
     paths:
       - 'docker/buildImageX.sh'
-  schedule:
+#  schedule:
     - cron: 30 23 * * *
   watch:
     types: started
