@@ -144,8 +144,8 @@ jobs:
         SW_FLOWOFFLOAD:	1
         SFE_FLOW:	1
         HW_FLOWOFFLOAD::	1
-        ENABLE_WIFI_K504: 1
-        ENABLE_WIFI_K510: 1
+        ENABLE_WIFI_K504: 0
+        ENABLE_WIFI_K510: 0
 
     - name: Upload artifact to Actions
       uses: kittaakos/upload-artifact-as-is@master
