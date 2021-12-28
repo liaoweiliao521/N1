@@ -18,8 +18,8 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: aarch64/ARMv8_SFE.config
-  DIY_P1_SH: router/armvirt_64/diy-part1.sh
-  DIY_P2_SH: router/armvirt_64/diy-part2.sh
+  DIY_P1_SH: diy-part1.sh
+  DIY_P2_SH: diy-part2.sh
   TZ: Asia/Shanghai
 
 jobs:
