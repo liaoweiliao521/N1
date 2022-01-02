@@ -55,6 +55,8 @@ svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/lu
 #svn co https://github.com/neheb/openwrt/branches/elf/package/libs/elfutils package/libs/elfutils
 #svn co https://github.com/breakings/OpenWrt/trunk/general/gnupg feeds/packages/utils/gnupg
 #svn co https://github.com/breakings/OpenWrt/trunk/general/n2n_v2 package/lean/n2n_v2
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
