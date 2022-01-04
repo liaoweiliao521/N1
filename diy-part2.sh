@@ -135,11 +135,6 @@ svn co https://github.com/sensec/luci-app-udp2raw/trunk package/luci-app-udp2raw
 sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f2f90a9a150be94d50af555b53657a2a4309f287/" package/openwrt-udp2raw/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
-#添加argon-config 使用 最新argon
-git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-rm -rf package/lean/luci-theme-argon/
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-
 #themes
 svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
 #git clone https://github.com/rosywrt/luci-theme-purple.git package/luci-theme-purple
@@ -151,6 +146,11 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-edge package
 #git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
 #svn co https://github.com/kevin-morgan/luci-theme-argon-dark/trunk package/luci-theme-argon-dark
 #svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
+
+#添加argon-config 使用 最新argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+rm -rf package/lean/luci-theme-argon/
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 
 # fix nginx-ssl-util error (do not use fallthrough attribute)
 #rm feeds/packages/net/nginx-util/src/nginx-ssl-util.hpp
@@ -642,7 +642,10 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/contr
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
-sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/ntfs3-oot-mount/files/mount.ntfs3
+#sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/ntfs3-oot-mount/files/mount.ntfs3
+
+# fix kernel 5.15 modules missing
+#cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
