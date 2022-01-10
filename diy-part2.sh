@@ -16,7 +16,6 @@ git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
 svn co https://github.com/halldong/luci-app-speederv2/trunk package/luci-app-speederv2
 svn co https://github.com/kenzok8/openwrt-packages/branches/main/luci-app-smartdns package/luci-app-smartdns
-svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/luci-app-mosdns
 svn co https://github.com/sensec/openwrt-udp2raw/trunk package/openwrt-udp2raw
 svn co https://github.com/sensec/luci-app-udp2raw/trunk package/luci-app-udp2raw
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
