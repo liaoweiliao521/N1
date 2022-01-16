@@ -73,8 +73,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|http.*/library|https://github.com/breakings/OpenWrt/opt/kernel|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
-cp -f $GITHUB_WORKSPACE/openwrt/general/qBittorrent/Makefile package/lean/qBittorrent
-cp -f $GITHUB_WORKSPACE/openwrt/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
+cp -f general/qBittorrent/Makefile package/lean/qBittorrent
+cp -f general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.5.2/g' feeds/packages/libs/libarchive/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=f0b19ff39c3c9a5898a219497ababbadab99d8178acc980155c7e1271089b5a0/g' feeds/packages/libs/libarchive/Makefile
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.45/g' package/libs/pcre/Makefile
@@ -224,12 +224,12 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/controller/openvpn.lua
-cp -f $GITHUB_WORKSPACE/openwrt/general/fs.mk package/kernel/linux/modules
+cp -f general/fs.mk package/kernel/linux/modules
 rm -f target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
 rm -f target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
-cp -f $GITHUB_WORKSPACE/openwrt/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
-cp -f $GITHUB_WORKSPACE/openwrt/general/openwrt_banner package/base-files/files/etc/banner
+cp -f general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
+cp -f general/openwrt_banner package/base-files/files/etc/banner
 rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
-cp $GITHUB_WORKSPACE/openwrt/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
+cp general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
 ./scripts/feeds update -a
 ./scripts/feeds install -a
