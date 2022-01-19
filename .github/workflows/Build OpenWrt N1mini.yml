@@ -24,7 +24,6 @@ env:
   UPLOAD_ARMVIRT: false
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
-  RECENT_LASTEST: 3
   TZ: Asia/Shanghai
 
 jobs:
@@ -176,12 +175,3 @@ jobs:
       with:
         retain_days: 1
         keep_minimum_runs: 30
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 7
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
