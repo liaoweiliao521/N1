@@ -1,7 +1,7 @@
 svn co https://github.com/breakings/OpenWrt/trunk/general  general
-rm -rf feeds/packages/utils/lvm2 
-rm -rf feeds/packages/net/kcptun 
-rm -rf feeds/packages/lang/python/python3 
+rm -rf feeds/packages/utils/lvm2
+rm -rf feeds/packages/net/kcptun
+rm -rf feeds/packages/lang/python/python3
 sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 svn co https://github.com/jerrykuku/lua-maxminddb/trunk package/lua-maxminddb
 svn co https://github.com/iwrt/luci-app-ikoolproxy/trunk package/luci-app-ikoolproxy
@@ -13,7 +13,6 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/l
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
-svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
 svn co https://github.com/halldong/luci-app-speederv2/trunk package/luci-app-speederv2
 svn co https://github.com/kenzok8/openwrt-packages/branches/main/luci-app-smartdns package/luci-app-smartdns
 svn co https://github.com/sensec/openwrt-udp2raw/trunk package/openwrt-udp2raw
@@ -45,13 +44,20 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.3/g' feeds/packages/libs/libseccomp/M
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df4b1e012fbc7b10a76/g' feeds/packages/libs/libseccomp/Makefile
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.5/g' feeds/packages/net/openvpn/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=119bd69fa0210838f6cdaa273696dc738efa200f454dbe11eb6dfb75dfb6003b/g' feeds/packages/net/openvpn/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.2/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=6b448242fd360c1a9f265b7263abf3da25d28f2b2b0f5465533b69be51a391dd/g' feeds/packages/lang/php8/Makefile
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=d916a26b62970e7c2f554110ed6af04c7ccff8e9f81ad17d0d40c75637e227fb/g' feeds/packages/lang/python/python-docker/Makefile
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.4/g' feeds/packages/utils/parted/Makefile
 sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=357d19387c6e7bc4a8a90fe2d015fe80/g' feeds/packages/utils/parted/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.0-stable/g' package/libs/wolfssl/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=908390282cc613a3943533f3d922b3c18dee3289f498b6f944cb86a19a5eeb56/g' package/libs/wolfssl/Makefile
 rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
+cp -rf general/wolfssl package/libs
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/ustream-ssl/Makefile
+sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-01-16/g' package/libs/ustream-ssl/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=868fd8812f477c110f9c6c5252c0bd172167b94c/g' package/libs/ustream-ssl/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=dd28d5e846b391917cf83d66176653bdfa4e8a0d5b11144b65a012fe7693ddeb/g' package/libs/ustream-ssl/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.3/g' feeds/packages/libs/expat/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b1f9f1b1a5ebb0acaa88c9ff79bfa4e145823b78aa5185e5c5d85f060824778a/g' feeds/packages/libs/expat/Makefile
 rm -rf feeds/packages/net/socat
 svn co https://github.com/openwrt/packages/trunk/net/socat feeds/packages/net/socat
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.7.4.2/g' feeds/packages/net/socat/Makefile
@@ -60,10 +66,11 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=6690a9f9990457b505097a272bbf2cbf4cc35576176f766
 sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-09-25/g' feeds/packages/net/transmission-web-control/Makefile
 sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4b2e1858f7a46ee678d5d1f3fa1a6cf2c739b88a/g' feeds/packages/net/transmission-web-control/Makefile
 sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=ea014c295766e2efc7b890dc6a6940176ba9c5bdcf85a029090f2bb850e59708/g' feeds/packages/net/transmission-web-control/Makefile
-sed -i 's/PYTHON3_VERSION_MICRO:=.*/PYTHON3_VERSION_MICRO:=9/g' feeds/packages/lang/python/python3-version.mk
+sed -i 's/PYTHON3_VERSION_MICRO:=.*/PYTHON3_VERSION_MICRO:=10/g' feeds/packages/lang/python/python3-version.mk
 sed -i 's/PYTHON3_SETUPTOOLS_VERSION:=.*/PYTHON3_SETUPTOOLS_VERSION:=58.1.0/g' feeds/packages/lang/python/python3-version.mk
 sed -i 's/PYTHON3_PIP_VERSION:=.*/PYTHON3_PIP_VERSION:=21.2.4/g' feeds/packages/lang/python/python3-version.mk
 svn co https://github.com/openwrt/packages/branches/openwrt-21.02/lang/python/python3 feeds/packages/lang/python/python3
+sed -i '28i\python3-readline: readline\' feeds/packages/lang/python/python3-find-stdlib-depends.sh
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.0/g' feeds/packages/lang/python/python-yaml/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/lang/python/python-yaml/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2/g' feeds/packages/lang/python/python-yaml/Makefile
@@ -154,10 +161,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=52c083b77c2b0d8449dee141f9c3eba76e6d4c5ad44ef05
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.18.1/g' feeds/packages/libs/c-ares/Makefile
 sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://c-ares.org/download|g' feeds/packages/libs/c-ares/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=1a7d52a8a84a9fbffb1be9133c0f6e17217d91ea5a6fa61f6b4729cda78ebbcf/g' feeds/packages/libs/c-ares/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.1/g' feeds/packages/utils/zstd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=444f68cf74d2ee6e1d3e53aa99463570bcabf37734f26f86b8aa3fec99446f96/g' feeds/packages/utils/zstd/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6/g' feeds/packages/utils/pigz/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2eed7b0d7449d1d70903f2a62cd6005d262eb3a8c9e98687bc8cbb5809db2a7d/g' feeds/packages/utils/pigz/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.2/g' feeds/packages/utils/zstd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=3ea06164971edec7caa2045a1932d757c1815858e4c2b68c7ef812647535c23f/g' feeds/packages/utils/zstd/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.7/g' feeds/packages/utils/pigz/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b4c9e60344a08d5db37ca7ad00a5b2c76ccb9556354b722d56d55ca7e8b1c707/g' feeds/packages/utils/pigz/Makefile
 rm -rf feeds/packages/utils/pigz/patches
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/libnl-tiny/Makefile
 sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-11-21/g' package/libs/libnl-tiny/Makefile
