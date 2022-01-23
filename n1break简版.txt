@@ -1,3 +1,4 @@
+svn co https://github.com/breakings/OpenWrt/trunk/general  general
 sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 svn co https://github.com/iwrt/luci-app-ikoolproxy/trunk package/luci-app-ikoolproxy
 svn co https://github.com/jerrykuku/lua-maxminddb/trunk package/lua-maxminddb
