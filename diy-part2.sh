@@ -18,6 +18,7 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/l
 svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
+svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 svn co https://github.com/kenzok8/openwrt-packages/branches/main/luci-app-smartdns package/luci-app-smartdns
 svn co https://github.com/sensec/luci-app-udp2raw/trunk package/luci-app-udp2raw
