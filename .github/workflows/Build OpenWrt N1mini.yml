@@ -137,7 +137,7 @@ jobs:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: s905d
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/trunk/opt/kernel
-        KERNEL_VERSION_NAME: 5.10.70_5.4.150_5.15.6
+        KERNEL_VERSION_NAME: 5.10.70_5.4.150_5.15.6_5.16.2
         KERNEL_AUTO_LATEST: true
         #OPENWRT_VER: R21.7.26
         SW_FLOWOFFLOAD:	1
