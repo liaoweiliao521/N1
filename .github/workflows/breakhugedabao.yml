@@ -95,7 +95,7 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.PACKAGED_STATUS == 'success' && !cancelled()
       with:
-        name: R${{ env.DATE }}
+        name: breakhuge${{ env.DATE }}
         tag: ${{ env.FILE_NAME }}
         commit: master
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
