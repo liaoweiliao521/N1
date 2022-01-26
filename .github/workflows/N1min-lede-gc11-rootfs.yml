@@ -32,7 +32,7 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: N1mini
+  FILE_NAME: N1mini-online
   PRODUCT_NAME: N1min-lede-gc11-rootfs
 
 jobs:
