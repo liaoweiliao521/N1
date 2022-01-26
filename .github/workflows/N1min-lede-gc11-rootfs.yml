@@ -147,7 +147,7 @@ jobs:
       id: release
       uses: ncipollo/release-action@v1
       with:
-        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
+        name: ledegc11-rootfs${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: main
