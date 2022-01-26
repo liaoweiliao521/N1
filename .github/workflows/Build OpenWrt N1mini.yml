@@ -157,14 +157,14 @@ jobs:
     - name: Upload OpenWrt Firmware to Release
       id: release
       uses: ncipollo/release-action@v1
-      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
+      if: env.PACKAGED_STATUS == 'success' && !cancelled()
       with:
-        name: R${{ env.DATE }}
+        name: N1miniauto${{ env.DATE }}
         tag: ${{ env.FILE_NAME }}
         commit: master
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.RELEASES_TOKEN }}
         body: |
           默认IP：192.168.1.1 默认密码： password
           Openwrt🚀(注:此版本为个人的精简版。+o版内核更稳定)
