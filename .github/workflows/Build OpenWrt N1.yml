@@ -5,7 +5,7 @@
 # Source code repository: https://github.com/coolsnowwolf/lede / Branch: master
 #========================================================================================================================
 
-name: Build OpenWrt N1 for Armvirt
+name: Build OpenWrt N1huge for Armvirt
 
 on:
   repository_dispatch:
@@ -26,8 +26,8 @@ env:
   UPLOAD_RELEASE: true
   RECENT_LASTEST: 3
   TZ: Asia/Shanghai
-  FILE_NAME: N1-auto
-  PRODUCT_NAME: N1-breakhuge-auto
+  FILE_NAME: Build OpenWrt N1huge
+  PRODUCT_NAME: Build OpenWrt N1huge
 
 jobs:
   build:
@@ -160,7 +160,7 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        name: N1-breakauto${{ env.DATE }}
+        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
         tag: ${{ env.FILE_NAME }}
         commit: master
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
