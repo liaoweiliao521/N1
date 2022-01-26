@@ -160,7 +160,7 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        name: R${{ env.DATE }}
+        name: N1-breakauto${{ env.DATE }}
         tag: ${{ env.FILE_NAME }}
         commit: master
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
