@@ -25,6 +25,8 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  FILE_NAME: N1mini-auto
+  PRODUCT_NAME: N1min-lede-gc11
 
 jobs:
   build:
@@ -137,7 +139,7 @@ jobs:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: s905d
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/trunk/opt/kernel
-        KERNEL_VERSION_NAME: 5.10.70_5.4.150_5.15.6_5.16.2
+        KERNEL_VERSION_NAME: 5.4.150_5.15.6_5.16.2
         KERNEL_AUTO_LATEST: true
         #OPENWRT_VER: R21.7.26
         SW_FLOWOFFLOAD:	1
@@ -153,19 +155,27 @@ jobs:
         path: ${{ env.PACKAGED_OUTPUTPATH }}/
 
     - name: Upload OpenWrt Firmware to Release
+      id: release
       uses: ncipollo/release-action@v1
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        tag: openwrt_armvirt_N1mini_${{ env.PACKAGED_OUTPUTDATE }}
+        name: R${{ env.DATE }}
+        tag: ${{ env.FILE_NAME }}
+        commit: master
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
-        token: ${{ secrets.RELEASES_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-          This is OpenWrt firmware for Armvirt 64
-          * Firmware information
-          Default IP: 192.168.1.1
-          Default username: root
-          Default password: password
-          Default WIFI name: OpenWrt
-          Default WIFI password: none
-          Install to EMMC: Login to OpenWrt → System → Amlogic Service → Install OpenWrt
+          默认IP：192.168.1.1 默认密码： password
+          Openwrt🚀(注:此版本为个人的精简版。+o版内核更稳定)
+          N1全新安装方法：
+             1. cd root
+             2. ./install-to-emmc.sh
+          N1在线升级方法：
+             1. cd /mnt/mmcblk2p4
+             2. wget 升级脚本链接,鼠标右击openwrt-update-amlogic 文件获取链接地址
+             3. wget img.gz后缀名的固件链接,鼠标右击后缀.img.gz文件获取链接地址
+             4. gzip -d 解压缩上一步下载的固件全名
+             5. chmod +x openwrt-update-amlogic
+             6. ./openwrt-update-amlogic后，选择y是保留配置升级，选N相当于重装。
+             7.升级完成后系统会自动重启，稍安勿躁。
