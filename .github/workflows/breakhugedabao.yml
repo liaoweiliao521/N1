@@ -100,7 +100,7 @@ jobs:
         commit: master
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.RELEASES_TOKEN }}
         body: |
           默认IP：192.168.1.1 默认密码： password
           Openwrt🚀(注:此版本为break的高大全版。+o版内核更稳定)
