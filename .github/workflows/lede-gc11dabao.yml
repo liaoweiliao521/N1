@@ -95,7 +95,7 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.PACKAGED_STATUS == 'success' && !cancelled()
       with:
-        name: lede-gc11${{ env.DATE }}
+        name: N1mini${{ env.DATE }}
         tag: ${{ env.FILE_NAME }}
         commit: master
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
