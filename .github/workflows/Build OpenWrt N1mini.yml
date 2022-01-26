@@ -25,8 +25,8 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Build OpenWrt N1mini
-  PRODUCT_NAME: Build OpenWrt N1mini
+  FILE_NAME: Build_OpenWrt_N1mini
+  PRODUCT_NAME: Build_OpenWrt_N1mini
 
 jobs:
   build:
