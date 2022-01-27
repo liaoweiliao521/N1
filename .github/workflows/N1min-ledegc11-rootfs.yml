@@ -33,7 +33,7 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: N1min-ledegc11-rootfs
-  PRODUCT_NAME: N1min-ledegc11-rootfs
+  PRODUCT_NAME: ledegc11-rootfs
 
 jobs:
   build:
