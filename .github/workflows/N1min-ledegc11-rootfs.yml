@@ -32,8 +32,8 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: N1min-ledegc11-rootfs
-  PRODUCT_NAME: ledegc11-rootfs
+  FILE_NAME: N1min_ledegc11_rootfs
+  PRODUCT_NAME: ledegc11_rootfs
 
 jobs:
   build:
