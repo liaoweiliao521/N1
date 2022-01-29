@@ -13,8 +13,14 @@ name: N1min-ledegc11-rootfs
 on:
   repository_dispatch:
   workflow_dispatch:
-  #schedule:
-    #- cron: '0 17 * * 0'
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false 
+        default: 'false'
+        
+#  schedule:
+#    - cron: 0 3 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
