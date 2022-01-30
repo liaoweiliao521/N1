@@ -33,8 +33,8 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Minidibao
-  PRODUCT_NAME: Minidibao
+  FILE_NAME: minidibao
+  PRODUCT_NAME: minidibao
 
 jobs:
   build:
