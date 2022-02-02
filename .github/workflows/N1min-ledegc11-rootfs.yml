@@ -33,7 +33,7 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: minidibao
+  FILE_NAME: arm64mini
   PRODUCT_NAME: minidibao
 
 jobs:
