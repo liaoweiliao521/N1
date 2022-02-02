@@ -26,11 +26,14 @@ svn co https://github.com/openwrt/packages/trunk/utils/lvm2 feeds/packages/utils
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0/g' feeds/packages/multimedia/ffmpeg/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=51e919f7d205062c0fd4fae6243a84850391115104ccf1efc451733bc0ac7298/g' feeds/packages/multimedia/ffmpeg/Makefile
 rm -f feeds/packages/multimedia/ffmpeg/patches/030-h264-mips.patch
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.12/g' package/libs/mbedtls/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.16.12/g' package/libs/mbedtls/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=294871ab1864a65d0b74325e9219d5bcd6e91c34a3c59270c357bb9ae4d5c393/g' package/libs/mbedtls/Makefile
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/liaoweiliao521/N1|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|http.*/library|https://github.com/breakings/OpenWrt/tree/main/opt/kernel|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|N1mini-online-dabao|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=38ab3cd19d4156226cacd6926972f866a77b76ec3b9677d9888efb9530a31833/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 cp -f general/qBittorrent/Makefile package/lean/qBittorrent
 cp -f general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.5.2/g' feeds/packages/libs/libarchive/Makefile
