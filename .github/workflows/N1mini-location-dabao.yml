@@ -78,7 +78,7 @@ jobs:
         SFE_FLOW:	1
         HW_FLOWOFFLOAD:	0
         ENABLE_WIFI_K504: 1
-        ENABLE_WIFI_K510: 0
+        ENABLE_WIFI_K510: 1
         GZIP_IMGS: .gz
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
