@@ -68,16 +68,16 @@ jobs:
       if: (!cancelled())
       uses: ophub/flippy-openwrt-actions@main
       env:
-        OPENWRT_ARMVIRT: https://github.com/liaoweiliao521/N1/releases/download/N1mini-roofs/openwrt-armvirt-64-default-rootfs.tar.gz
+        OPENWRT_ARMVIRT:https://github.com/liaoweiliao521/N1/releases/download/N1mini-roofs/openwrt-armvirt-64-default-rootfs.tar.gz
         PACKAGE_SOC: s905d
-        KERNEL_VERSION_NAME: 5.4.160_5.15.6_5.16.2
+        KERNEL_VERSION_NAME: 5.4.177_5.10.97_5.15.20_5.16.6
         KERNEL_AUTO_LATEST: true
         #OPENWRT_VER: R21.7.26
         SW_FLOWOFFLOAD:	1
         SFE_FLOW:	1
         HW_FLOWOFFLOAD:	0
         ENABLE_WIFI_K504: 1
-        ENABLE_WIFI_K510: 0
+        ENABLE_WIFI_K510: 1
         GZIP_IMGS: .gz
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
@@ -90,28 +90,37 @@ jobs:
       with:
         path: ${{ env.PACKAGED_OUTPUTPATH }}/
 
-    - name: Upload OpenWrt Firmware to Release
+    name: Upload OpenWrt Firmware to Release
       id: release
       uses: ncipollo/release-action@v1
-      if: env.PACKAGED_STATUS == 'success' && !cancelled()
       with:
-        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
+        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
+        allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: master
-        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
-        allowUpdates: true
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
-          默认IP：192.168.1.1 默认密码： password
-          Openwrt🚀(注:此版本为个人的精简版。+o版内核更稳定)
-          N1全新安装方法：
-             1. cd root
-             2. ./install-to-emmc.sh
-          N1在线升级方法：
-             1. cd /mnt/mmcblk2p4
-             2. wget 升级脚本链接,鼠标右击openwrt-update-amlogic 文件获取链接地址
-             3. wget img.gz后缀名的固件链接,鼠标右击后缀.img.gz文件获取链接地址
-             4. gzip -d 解压缩上一步下载的固件全名
-             5. chmod +x openwrt-update-amlogic
-             6. ./openwrt-update-amlogic后，选择y是保留配置升级，选N相当于重装。
-             7.升级完成后系统会自动重启，稍安勿躁。
+          
+          因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
+          
+          默认IP：192.168.99.1 默认密码： password
+          
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
+          参见 Files4Build 内记录
+          
+          54版更新说明：具体请参阅F大发的[帖子](https://www.right.com.cn/forum/thread-4076037-1-1.html)
+          1.  54版本对于微加云、贝壳云、我家云等非 Amlogic的盒子来说，并没有什么特别的变化，一切照旧
+          2.  Amlogic盒子的安装脚本、升级脚本都做了大量变更，简介如下：
+              a. N1盒子： 53版本由于调整成激进的分区策略，占用了EMMC的68MB-700MB范围，但是U-boot启动过程中可能会读写该区域，导致启动失败，因此54版本重新调回从700MB起始，这样一来，刷过53的用户建议先刷回安卓固件再重新刷54，刷回安卓的目的是还原68-700MB这个范围的原始数据，要是实在不想还原的话，出了问题不要怪固件就行。
+              b. 章鱼星球盒子： 与N1情况类似
+              c. S905x3盒子：主线u-boot已经可以刷入EMMC（这是可选的）,彻底解决绿屏问题、千兆网问题，并且+版也可以从EMMC启动了(即使不刷入主线u-boot也可以)，不再需要一直插着U盘或sd卡
+              d. S905X2、S922X盒子：由于用户稀少，并且还没有解决主线u-boot的问题，所以暂时停更，复更时间未定。
+              e. 升级脚本一分为二：update-amlogic-openwrt.sh 用于(目标版本)54及以后版本的升降级，update-amlogic-openwrt-old.sh 用于(目标版本)53及以前版本的升降级
+              f. x96max+ PCB版本4.1不能启动的原因已查明，见置顶的提示，其实 V3.1和V4.0也都有同样问题，只是程度比V4.1轻，如果出现类似问题也可参考4.1的办法处理。
+          升级降级方法统一为：
+              1. 把 update-amlogic-openwrt.sh 及 img镜像上传至  /mnt/mmcblk2p4
+              2. cd    /mnt/mmcblk2p4
+              3. chmod   755  update-amlogic-openwrt.sh
+              4. ./update-amlogic-openwrt.sh    xxxxx.img
+        
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
