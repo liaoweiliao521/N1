@@ -30,10 +30,10 @@ svn co https://github.com/breakings/OpenWrt/trunk/general  general
 # autocore
 sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 # Add cputemp.sh
-#cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
+#cp -rf PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
 
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
 
 #添加额外软件包
 #git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
@@ -187,10 +187,10 @@ sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.0/g' feeds/packages/net/qBittorrent/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=da240744c6cc5953d7c4d298a02a0cf36d2c8897931819f1e6459bd5270a7c5c/g' feeds/packages/net/qBittorrent/Makefile
 #sed -i '41i\		+qt5-sql \\' feeds/packages/net/qBittorrent/Makefile
-cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile feeds/packages/net/qBittorrent
+cp -f general/qBittorrent/Makefile feeds/packages/net/qBittorrent
 
 # libtorrent-rasterbar_v2
-cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
+cp -f general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 
 # golang
 sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=7/g' feeds/packages/lang/golang/golang/Makefile
@@ -310,7 +310,7 @@ sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=357d19387c6e7bc4a8a90fe2d015fe80/g' feeds/p
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.0-stable/g' package/libs/wolfssl/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=908390282cc613a3943533f3d922b3c18dee3289f498b6f944cb86a19a5eeb56/g' package/libs/wolfssl/Makefile
 #rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
-#cp -rf $GITHUB_WORKSPACE/general/wolfssl package/libs
+#cp -rf general/wolfssl package/libs
 
 # ustream-ssl
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/ustream-ssl/Makefile
@@ -581,7 +581,7 @@ svn co https://github.com/openwrt/openwrt/branches/openwrt-21.02/package/kernel/
 
 # 可道云
 #rm -rf package/lean/luci-app-kodexplorer
-#cp -r $GITHUB_WORKSPACE/general/luci-app-kodexplorer package/lean/luci-app-kodexplorer
+#cp -r general/luci-app-kodexplorer package/lean/luci-app-kodexplorer
 
 # exfatprogs
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.3/g' feeds/packages/utils/exfatprogs/Makefile
@@ -651,7 +651,7 @@ rm -rf feeds/packages/libs/icu
 svn co https://github.com/openwrt/packages/trunk/libs/icu feeds/packages/libs/icu
 
 # ucode
-#cp -rf $GITHUB_WORKSPACE/general/ucode package/utils
+#cp -rf general/ucode package/utils
 
 # readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
@@ -668,29 +668,29 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/contr
 #sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/ntfs3-mount/files/mount.ntfs
 
 # fix kernel modules missing nfs_ssc.ko
-cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
+cp -f general/fs.mk package/kernel/linux/modules
 rm -f target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
 rm -f target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
-cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
+cp -f general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
-#cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
+#cp general/coremark.sh feeds/packages/utils/coremark/
 
 # replace banner
-cp -f $GITHUB_WORKSPACE/general/openwrt_banner package/base-files/files/etc/banner
+cp -f general/openwrt_banner package/base-files/files/etc/banner
 
 # boost
 rm -rf feeds/packages/libs/boost
-cp -r $GITHUB_WORKSPACE/general/boost feeds/packages/libs
+cp -r general/boost feeds/packages/libs
 
 # wxbase
 rm -rf feeds/packages/libs/wxbase
-cp -r $GITHUB_WORKSPACE/general/wxbase feeds/packages/libs
+cp -r general/wxbase feeds/packages/libs
 
 # fix luci-theme-opentomcat dockerman icon missing
 rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
-cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
+cp general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
