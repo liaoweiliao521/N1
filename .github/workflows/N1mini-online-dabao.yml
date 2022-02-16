@@ -90,7 +90,7 @@ jobs:
       with:
         path: ${{ env.PACKAGED_OUTPUTPATH }}/
 
-    name: Upload OpenWrt Firmware to Release
+    - name: Upload OpenWrt Firmware to Release
       id: release
       uses: ncipollo/release-action@v1
       with:
@@ -103,7 +103,7 @@ jobs:
           
           因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
           
-          默认IP：192.168.99.1 默认密码： password
+          默认IP：192.168.1.1 默认密码： password
           
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           参见 Files4Build 内记录
