@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt
+name: N1min-yun-rootfs
 
 on:
   repository_dispatch:
@@ -32,8 +32,8 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: dibao
-  PRODUCT_NAME: N1MINI-YUNDIBAO
+  FILE_NAME: N1min-yun-rootfs
+  PRODUCT_NAME: N1min-yun-rootfs
 
 jobs:
   build:
