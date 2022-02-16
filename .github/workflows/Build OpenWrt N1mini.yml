@@ -166,7 +166,7 @@ jobs:
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
-          默认IP：192.168.1.1 默认密码： password
+          默认IP：192.168.99.1 默认密码： password
           Openwrt🚀(注:此版本为个人的精简版。+o版内核更稳定)
           N1全新安装方法：
              1. cd root
