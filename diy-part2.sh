@@ -9,9 +9,7 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
-
 svn co https://github.com/breakings/OpenWrt/trunk/general  general
-
 # 删除软件包
  #rm -rf feeds/packages/net/openssh
  #rm -rf feeds/packages/sound/fdk-aac
@@ -32,10 +30,10 @@ svn co https://github.com/breakings/OpenWrt/trunk/general  general
 # autocore
 sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 # Add cputemp.sh
-#cp -rf PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
+#cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
 #添加额外软件包
 #git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
@@ -181,18 +179,19 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # btrfs-progs
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16/g' feeds/packages/utils/btrfs-progs/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=38ab3cd19d4156226cacd6926972f866a77b76ec3b9677d9888efb9530a31833/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16.2/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=9e9b303a1d0fd9ceaaf204ee74c1c8fa1fd55794e223d9fe2bc62875ecbd53d2/g' feeds/packages/utils/btrfs-progs/Makefile
+rm -rf feeds/packages/utils/btrfs-progs/patches
 #sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
 # qBittorrent (use cmake)
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.0/g' feeds/packages/net/qBittorrent/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=da240744c6cc5953d7c4d298a02a0cf36d2c8897931819f1e6459bd5270a7c5c/g' feeds/packages/net/qBittorrent/Makefile
 #sed -i '41i\		+qt5-sql \\' feeds/packages/net/qBittorrent/Makefile
-cp -f general/qBittorrent/Makefile feeds/packages/net/qBittorrent
+cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile feeds/packages/net/qBittorrent
 
 # libtorrent-rasterbar_v2
-cp -f general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
+cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 
 # golang
 #sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=7/g' feeds/packages/lang/golang/golang/Makefile
@@ -287,8 +286,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.2/g' feeds/packages/lang/php8/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=6b448242fd360c1a9f265b7263abf3da25d28f2b2b0f5465533b69be51a391dd/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.3/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=5d65a11071b47669c17452fb336c290b67c101efb745c1dbe7525b5caf546ec6/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
@@ -312,7 +311,7 @@ sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=357d19387c6e7bc4a8a90fe2d015fe80/g' feeds/p
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.0-stable/g' package/libs/wolfssl/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=908390282cc613a3943533f3d922b3c18dee3289f498b6f944cb86a19a5eeb56/g' package/libs/wolfssl/Makefile
 #rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
-#cp -rf general/wolfssl package/libs
+#cp -rf $GITHUB_WORKSPACE/general/wolfssl package/libs
 
 # ustream-ssl
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/ustream-ssl/Makefile
@@ -559,8 +558,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=b4c9e60344a08d5db37ca7ad00a5b2c76ccb9556354b722
 rm -rf feeds/packages/utils/pigz/patches
 
 # nano
-#rm -rf feeds/packages/utils/nano
-#svn co https://github.com/openwrt/packages/trunk/utils/nano feeds/packages/utils/nano
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.2/g' feeds/packages/utils/nano/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2bca1804bead6aaf4ad791f756e4749bb55ed860eec105a97fba864bc6a77cb3/g' feeds/packages/utils/nano/Makefile
 
 # dnsproxy
 #rm -rf package/lean/dnsproxy
@@ -584,7 +583,7 @@ svn co https://github.com/openwrt/openwrt/branches/openwrt-21.02/package/kernel/
 
 # 可道云
 #rm -rf package/lean/luci-app-kodexplorer
-#cp -r general/luci-app-kodexplorer package/lean/luci-app-kodexplorer
+#cp -r $GITHUB_WORKSPACE/general/luci-app-kodexplorer package/lean/luci-app-kodexplorer
 
 # exfatprogs
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.3/g' feeds/packages/utils/exfatprogs/Makefile
@@ -654,7 +653,7 @@ rm -rf feeds/packages/libs/icu
 svn co https://github.com/openwrt/packages/trunk/libs/icu feeds/packages/libs/icu
 
 # ucode
-#cp -rf general/ucode package/utils
+#cp -rf $GITHUB_WORKSPACE/general/ucode package/utils
 
 # readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' feeds/luci/applications/luci-app-cpufreq/Makefile
@@ -671,29 +670,29 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/contr
 #sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/ntfs3-mount/files/mount.ntfs
 
 # fix kernel modules missing nfs_ssc.ko
-cp -f general/fs.mk package/kernel/linux/modules
+cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
 rm -f target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
 rm -f target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
-cp -f general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
+cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
-#cp general/coremark.sh feeds/packages/utils/coremark/
+#cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
 
 # replace banner
-cp -f general/openwrt_banner package/base-files/files/etc/banner
+cp -f $GITHUB_WORKSPACE/general/openwrt_banner package/base-files/files/etc/banner
 
 # boost
 rm -rf feeds/packages/libs/boost
-cp -r general/boost feeds/packages/libs
+cp -r $GITHUB_WORKSPACE/general/boost feeds/packages/libs
 
 # wxbase
 rm -rf feeds/packages/libs/wxbase
-cp -r general/wxbase feeds/packages/libs
+cp -r $GITHUB_WORKSPACE/general/wxbase feeds/packages/libs
 
 # fix luci-theme-opentomcat dockerman icon missing
 rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
-cp general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
+cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
