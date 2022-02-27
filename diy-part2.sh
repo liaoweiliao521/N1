@@ -9,7 +9,6 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
-
 svn co https://github.com/breakings/OpenWrt/trunk/general  general
 
 
@@ -720,10 +719,13 @@ cp -r general/flac feeds/packages/libs
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.39.1/g' feeds/packages/net/frp/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=858a4a1920f3f3c90161f7acba468eddcd1dbd1b18c3f4028a0f6eca77da9397/g' feeds/packages/net/frp/Makefile
 
+<<<<<<< HEAD
 # openconnect
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/openconnect/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=c1452384c6f796baee45d4e919ae1bfc281d6c88862e1f646a2cc513fc44e58b/g' feeds/packages/net/openconnect/Makefile
 
+=======
+>>>>>>> 7c3122280cb5b13e99354e6dd4629c9c2a82bdd1
 ./scripts/feeds update -a
 ./scripts/feeds install -a
