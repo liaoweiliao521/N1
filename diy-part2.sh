@@ -585,7 +585,8 @@ sed -i '19,20d' package/libs/libnl-tiny/Makefile
 
 # mac80211
 rm -rf package/kernel/mac80211
-svn co https://github.com/openwrt/openwrt/branches/openwrt-21.02/package/kernel/mac80211 package/kernel/mac80211
+#svn co https://github.com/openwrt/openwrt/branches/openwrt-21.02/package/kernel/mac80211 package/kernel/mac80211
+svn co https://github.com/openwrt/openwrt/trunk/package/kernel/mac80211 package/kernel/mac80211
 
 # mt76
 #rm -rf package/kernel/mt76
