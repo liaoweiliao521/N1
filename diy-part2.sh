@@ -9,16 +9,13 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
-
 svn co https://github.com/breakings/OpenWrt/trunk/general  general
-
-
 # 删除软件包
  #rm -rf feeds/packages/net/openssh
  #rm -rf feeds/packages/sound/fdk-aac
  rm -rf feeds/packages/utils/lvm2
  #rm -rf feeds/packages/utils/tini
- rm -rf feeds/packages/net/kcptun
+ #rm -rf feeds/packages/net/kcptun
  #rm -rf package/lean/ntfs3
  #rm -rf package/lean/luci-app-cpufreq
  #rm include/feeds.mk
@@ -89,7 +86,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-geodata package/v2ray-geodata
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
 
@@ -148,6 +145,7 @@ svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-the
 #git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
 #svn co https://github.com/kevin-morgan/luci-theme-argon-dark/trunk package/luci-theme-argon-dark
 #svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
+svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-neobird
 
 # fix nginx-ssl-util error (do not use fallthrough attribute)
 #rm feeds/packages/net/nginx-util/src/nginx-ssl-util.hpp
@@ -584,9 +582,9 @@ sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=6717fccb32b51f2762114875a7bc98e72
 sed -i '19,20d' package/libs/libnl-tiny/Makefile
 
 # mac80211
-rm -rf package/kernel/mac80211
+#rm -rf package/kernel/mac80211
 #svn co https://github.com/openwrt/openwrt/branches/openwrt-21.02/package/kernel/mac80211 package/kernel/mac80211
-svn co https://github.com/openwrt/openwrt/trunk/package/kernel/mac80211 package/kernel/mac80211
+#svn co https://github.com/openwrt/openwrt/trunk/package/kernel/mac80211 package/kernel/mac80211
 
 # mt76
 #rm -rf package/kernel/mt76
