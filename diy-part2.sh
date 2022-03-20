@@ -21,6 +21,18 @@ svn co https://github.com/breakings/OpenWrt/trunk/general  general
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
+svn co https://github.com/breakings/OpenWrt/trunk/general  general
+#!/bin/bash
+#
+# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
+# https://github.com/P3TERX/Actions-OpenWrt
+# File name: diy-part2.sh
+# Description: OpenWrt DIY script part 2 (After Update feeds)
+#
 
 # 删除软件包
  #rm -rf feeds/packages/net/openssh
@@ -718,6 +730,8 @@ cp -f general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
 cp -f general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
 cp -f general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
 #rm -f target/linux/generic/pending-5.10/701-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
+rm -f target/linux/generic/hack-5.10/220-gc_sections.patch
+cp -f general/220-arm-gc_sections.patch target/linux/generic/hack-5.10
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
