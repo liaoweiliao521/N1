@@ -21,18 +21,6 @@ svn co https://github.com/breakings/OpenWrt/trunk/general  general
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
-svn co https://github.com/breakings/OpenWrt/trunk/general  general
-#!/bin/bash
-#
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-part2.sh
-# Description: OpenWrt DIY script part 2 (After Update feeds)
-#
 
 # 删除软件包
  #rm -rf feeds/packages/net/openssh
@@ -317,8 +305,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=13c7c3dc399d1b571cabf189c4d34ae34656ee72b6bde2a
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.4/g' feeds/packages/lang/php8/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=05a8c0ac30008154fb38a305560543fc172ba79fb957084a99b8d3b10d5bdb4b/g' feeds/packages/lang/php8/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.4/g' feeds/packages/lang/php8/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=05a8c0ac30008154fb38a305560543fc172ba79fb957084a99b8d3b10d5bdb4b/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
@@ -830,6 +818,11 @@ cp -f general/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api/app.lua fe
 # perl
 rm -rf feeds/packages/lang/perl
 cp -rf general/perl feeds/packages/lang
+
+# mtr
+mkdir -pv feeds/packages/net/mtr/patches
+rm -f feeds/packages/net/mtr/patches/*.patch
+wget -P feeds/packages/net/mtr/patches https://github.com/traviscross/mtr/commit/aeb493e08eabcb4e6178bda0bb84e9cd01c9f213.patch
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
