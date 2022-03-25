@@ -45,7 +45,7 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 #cp -rf PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
 
 #添加额外软件包
 #git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
@@ -246,14 +246,14 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=294871ab1864a65d0b74325e9219d5bcd6e91c34a3c59270c357bb9ae4d5c393/g' package/libs/mbedtls/Makefile
 
 # docker
-sed -i 's/PKG_VERSION:=20.10.12/PKG_VERSION:=20.10.13/g' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=5aa34f34b2c6f21ade2227edd08b803d972842d1abd5e70d7e4e758f966e4e3c/g' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_VERSION:=20.10.12/PKG_VERSION:=20.10.14/g' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=bda289b27b18675d6a6ff07568453768fe68c16c27b5e52724e46896d5464a55/g' feeds/packages/utils/docker/Makefile
 sed -i 's/PKG_GIT_SHORT_COMMIT:=e91ed57/PKG_GIT_SHORT_COMMIT:=a224086/g' feeds/packages/utils/docker/Makefile
 
 # dockerd
-sed -i 's/PKG_VERSION:=20.10.12/PKG_VERSION:=20.10.13/' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=bd82205bbb39e835c4e9c691c9d5bb8dea40ace847f80b030c736faba95b0b67/' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=459d0df/PKG_GIT_SHORT_COMMIT:=906f57f/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_VERSION:=20.10.12/PKG_VERSION:=20.10.14/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=dbe1ae342351108b7b30232c4bce0559c81ad9fb6c978d7c8425d6aa53e476c1/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_GIT_SHORT_COMMIT:=459d0df/PKG_GIT_SHORT_COMMIT:=87a90dc/' feeds/packages/utils/dockerd/Makefile
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
@@ -261,9 +261,9 @@ sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=bcca033859abfbb0949c4455725e5b01593f217f0b32b1d7f861c75c0b69f285/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.13/g' feeds/packages/utils/containerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=7c554e71b34209da5a8a851e16e4edeb375a47f39b099f3bd207bd0500002175/g' feeds/packages/utils/containerd/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=9cc61520f4cd876b86e77edfeb88fbcd536d1f9d/g' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=6a289406c1c0583763e5a9754e31a1eced55cd5f162a7bc2a3a315d5eb05c7a1/g' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=3df54a852345ae127d1fa3092b95168e4a88e2f8/g' feeds/packages/utils/containerd/Makefile
 #cp -f general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
@@ -594,7 +594,7 @@ rm -rf feeds/packages/utils/pigz/patches
 # nano
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.2/g' feeds/packages/utils/nano/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2bca1804bead6aaf4ad791f756e4749bb55ed860eec105a97fba864bc6a77cb3/g' feeds/packages/utils/nano/Makefile
-cp -rf general/nano feeds/packages/utils
+#cp -rf general/nano feeds/packages/utils
 
 # dnsproxy
 #rm -rf package/lean/dnsproxy
@@ -794,7 +794,7 @@ sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' fee
 sed -i '39d' feeds/packages/libs/sqlite3/Makefile
 
 # zoneinfo
-cp -f general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
+#cp -f general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
 
 # adguardhome
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.107.5/g' feeds/packages/net/adguardhome/Makefile
@@ -818,11 +818,6 @@ cp -f general/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api/app.lua fe
 # perl
 rm -rf feeds/packages/lang/perl
 cp -rf general/perl feeds/packages/lang
-
-# mtr
-mkdir -pv feeds/packages/net/mtr/patches
-rm -f feeds/packages/net/mtr/patches/*.patch
-wget -P feeds/packages/net/mtr/patches https://github.com/traviscross/mtr/commit/aeb493e08eabcb4e6178bda0bb84e9cd01c9f213.patch
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
