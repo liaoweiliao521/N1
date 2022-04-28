@@ -63,7 +63,7 @@ svn co https://github.com/iwrt/luci-app-ikoolproxy/trunk package/luci-app-ikoolp
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 #svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-cpufreq package/luci-app-cpufreq
 #svn co https://github.com/breakings/OpenWrt/trunk/general/ntfs3 package/lean/ntfs3
-#svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat
+svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat
 #svn co https://github.com/neheb/openwrt/branches/elf/package/libs/elfutils package/libs/elfutils
 #svn co https://github.com/breakings/OpenWrt/trunk/general/gnupg feeds/packages/utils/gnupg
 #svn co https://github.com/breakings/OpenWrt/trunk/general/n2n_v2 package/lean/n2n_v2
@@ -265,7 +265,7 @@ sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/
 
 # containerd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=6a289406c1c0583763e5a9754e31a1eced55cd5f162a7bc2a3a315d5eb05c7a1/g' feeds/packages/utils/containerd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=02b79d5e2b07b5e64cd28f1fe84395ee11eef95fc49fd923a9ab93022b148be6/g' feeds/packages/utils/containerd/Makefile
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=3df54a852345ae127d1fa3092b95168e4a88e2f8/g' feeds/packages/utils/containerd/Makefile
 #cp -f general/containerd/Makefile feeds/packages/utils/containerd
 
@@ -779,9 +779,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=2d64e90f3ded394b91d3a2e774ca203a4179f69aebee030
 #svn co https://github.com/breakings/packages/branches/gnutls/libs/gnutls feeds/packages/libs/gnutls
 
 # smartmontools
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.3/g' feeds/packages/utils/smartmontools/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/smartmontools/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=a544f8808d0c58cfb0e7424ca1841cb858a974922b035d505d4e4c248be3a22b/g' feeds/packages/utils/smartmontools/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.3/g' feeds/packages/utils/smartmontools/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/smartmontools/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=a544f8808d0c58cfb0e7424ca1841cb858a974922b035d505d4e4c248be3a22b/g' feeds/packages/utils/smartmontools/Makefile
 
 # libxml2
 cp -f general/libxml2/Makefile feeds/packages/libs/libxml2
@@ -824,9 +824,9 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.24.0/g' feeds/packages/net/tailscale/Ma
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=3c8fe851c440d5dbd9dba2f3242924a7d99e7df37b5ae098507a8feb3663c76f/g' feeds/packages/net/tailscale/Makefile
 
 # ruby
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0.4/g' feeds/packages/lang/ruby/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/lang/ruby/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=8e22fc7304520435522253210ed0aa9a50545f8f13c959fe01a05aea06bef2f0/g' feeds/packages/lang/ruby/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0.4/g' feeds/packages/lang/ruby/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/lang/ruby/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=8e22fc7304520435522253210ed0aa9a50545f8f13c959fe01a05aea06bef2f0/g' feeds/packages/lang/ruby/Makefile
 
 # libnetfilter-conntrack
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.9/g' package/libs/libnetfilter-conntrack/Makefile
