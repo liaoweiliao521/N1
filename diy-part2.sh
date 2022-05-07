@@ -249,16 +249,16 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=294871ab1864a65d0b74325e9219d5bcd6e91c34a3c59270c357bb9ae4d5c393/g' package/libs/mbedtls/Makefile
 
 # docker
-sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.15/g' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=54e1c03bdae208ec911966006df1f965e4d218dd4d8a96792139d845eaf4c2aa/g' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=a224086/PKG_GIT_SHORT_COMMIT:=fd82621/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.15/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=54e1c03bdae208ec911966006df1f965e4d218dd4d8a96792139d845eaf4c2aa/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=a224086/PKG_GIT_SHORT_COMMIT:=fd82621/g' feeds/packages/utils/docker/Makefile
 
 # dockerd
-sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.15/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=cfb1029b48fd7ab2d03bddb55909a196e0f516b3e5495a033dfbfe00fe9fadad/' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=87a90dc/PKG_GIT_SHORT_COMMIT:=4433bf6/' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.15/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=cfb1029b48fd7ab2d03bddb55909a196e0f516b3e5495a033dfbfe00fe9fadad/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=87a90dc/PKG_GIT_SHORT_COMMIT:=4433bf6/g' feeds/packages/utils/dockerd/Makefile
 #sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
@@ -269,12 +269,12 @@ sed -i 's/PKG_GIT_SHORT_COMMIT:=87a90dc/PKG_GIT_SHORT_COMMIT:=4433bf6/' feeds/pa
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=skip/g' feeds/packages/utils/containerd/Makefile
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=3df54a852345ae127d1fa3092b95168e4a88e2f8/g' feeds/packages/utils/containerd/Makefile
-cp -f general/containerd/Makefile feeds/packages/utils/containerd
+#cp -f general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.1/g' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=11a34535c108b36fd59de58e7bef3a130444c9ea41e4b8bb8f8d4654c8ad654c/g' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=52de29d7e0f8c0899bd7efb8810dd07f0073fa87/g' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.1/g' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=11a34535c108b36fd59de58e7bef3a130444c9ea41e4b8bb8f8d4654c8ad654c/g' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=52de29d7e0f8c0899bd7efb8810dd07f0073fa87/g' feeds/packages/utils/runc/Makefile
 
 # bsdtar
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.6.1/g' feeds/packages/libs/libarchive/Makefile
@@ -291,8 +291,8 @@ sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://github.com/PhilipHazel/pcre
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=14e4b83c4783933dc17e964318e6324f7cae1bc75d8f3c79bc6969f00c159d68/g' feeds/packages/libs/pcre2/Makefile
 
 # libseccomp
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.3/g' feeds/packages/libs/libseccomp/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df4b1e012fbc7b10a76/g' feeds/packages/libs/libseccomp/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.4/g' feeds/packages/libs/libseccomp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=d82902400405cf0068574ef3dc1fe5f5926207543ba1ae6f8e7a1576351dcbdb/g' feeds/packages/libs/libseccomp/Makefile
 
 # wsdd2
 #sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-10-22/g' feeds/packages/net/wsdd2//Makefile
@@ -394,8 +394,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.26.9/g' feeds/packages/lang/python/pyth
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e/g' feeds/packages/lang/python/python-urllib3/Makefile
 
 # python-sqlalchemy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.35/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ffc813b01dc6473990f5e575f210ca5ac2f5465ace3908b78ffd6d20058aab5/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.36/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=64678ac321d64a45901ef2e24725ec5e783f1f4a588305e196431447e7ace243/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
 
 # python-simplejson
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.17.6/g' feeds/packages/lang/python/python-simplejson/Makefile
@@ -431,9 +431,9 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2021.10.8/g' feeds/packages/lang/python/p
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872/g' feeds/packages/lang/python/python-certifi/Makefile
 
 # bcrypt
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.0/g' feeds/packages/lang/python/bcrypt/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.2/g' feeds/packages/lang/python/bcrypt/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/lang/python/bcrypt/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=5b93c1726e50a93a033c36e5ca7fdcd29a5c7395af50a6892f5d9e7c6cfbfb29/g' feeds/packages/lang/python/bcrypt/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=433c410c2177057705da2a9f2cd01dd157493b2a7ac14c8593a16b3dab6b6bfb/g' feeds/packages/lang/python/bcrypt/Makefile
 
 # python-dotenv
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.20.0/g' feeds/packages/lang/python/python-dotenv/Makefile
@@ -520,8 +520,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.6/g' feeds/packages/net/ocserv/Makefi
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=6a6cbe92212e32280426a51c634adc3d4803579dd049cfdb7e014714cc82c693/g' feeds/packages/net/ocserv/Makefile
 
 # unrar
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.1.6/g' feeds/packages/utils/unrar/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=67f4ab891c062218c2badfaac9c8cab5c8bfd5e96dabfca56c8faa3d209a801d/g' feeds/packages/utils/unrar/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.1.7/g' feeds/packages/utils/unrar/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=de75b6136958173fdfc530d38a0145b72342cf0d3842bf7bb120d336602d88ed/g' feeds/packages/utils/unrar/Makefile
 
 # at
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.2/g' feeds/packages/utils/at/Makefile
@@ -659,9 +659,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=9384a2b0570dd80358841464677115df785edb941c71211
 #find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's|include\ \.\.\/\.\.\/devel/meson/meson.mk|include \$(INCLUDE_DIR)\/meson.mk|g' {}
 
 # smartdns
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=24661c2419a81e660b11a0e3d35a3bc269cd4bfa/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=0835be621f0359bec24fe2ec112f455aef8d403167be33a8366630db9fdbdbaa/g' feeds/packages/net/smartdns/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36/g' feeds/packages/net/smartdns/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=34691154fb40fc9949aa7aabec3ec2045fc51059/g' feeds/packages/net/smartdns/Makefile
+#sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=0835be621f0359bec24fe2ec112f455aef8d403167be33a8366630db9fdbdbaa/g' feeds/packages/net/smartdns/Makefile
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36/g' package/luci-app-smartdns/Makefile
 
 # aliyundrive webdav
@@ -684,6 +684,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36/g' package/luci-app-smartdns/Ma
 # icu
 #rm -rf feeds/packages/libs/icu
 #svn co https://github.com/openwrt/packages/trunk/libs/icu feeds/packages/libs/icu
+sed -i 's/MAJOR_VERSION:=.*/MAJOR_VERSION:=71/g' feeds/packages/libs/icu/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=67a7e6e51f61faf1306b6935333e13b2c48abd8da6d2f46ce6adca24b1e21ebf/g' feeds/packages/libs/icu/Makefile
 
 # ucode
 #cp -rf general/ucode package/utils
@@ -843,9 +845,9 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.95.0/g' feeds/packages/utils/lsof/Makef
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=e9faa0fbcc48638c1d1f143e93573ac43b65e76646150f83e24bd8c18786303c/g' feeds/packages/utils/lsof/Makefile
 
 # libnetwork
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=339b972b464ee3d401b5788b2af9e31d09d6b7da/g' feeds/packages/utils/libnetwork/Makefile
-sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-03-16/g' feeds/packages/utils/libnetwork/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=0f99357acc839619d108d358da09e288fd741f299fe5cf500bb5e8267f64aad1/g' feeds/packages/utils/libnetwork/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=339b972b464ee3d401b5788b2af9e31d09d6b7da/g' feeds/packages/utils/libnetwork/Makefile
+#sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-03-16/g' feeds/packages/utils/libnetwork/Makefile
+#sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=0f99357acc839619d108d358da09e288fd741f299fe5cf500bb5e8267f64aad1/g' feeds/packages/utils/libnetwork/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
