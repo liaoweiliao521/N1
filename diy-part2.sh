@@ -218,8 +218,8 @@ cp -f general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-raste
 #cp -rf general/golang feeds/packages/lang/golang
 
 # curl
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.83.0/g' feeds/packages/net/curl/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=bbff0e6b5047e773f3c3b084d80546cc1be4e354c09e419c2d0ef6116253511a/g' feeds/packages/net/curl/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.83.1/g' feeds/packages/net/curl/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2cb9c2356e7263a1272fd1435ef7cdebf2cd21400ec287b068396deb705c22c4/g' feeds/packages/net/curl/Makefile
 rm -f feeds/packages/net/curl/patches/0001-wolfssl-fix-compiler-error-without-IPv6.patch
 #wget -P feeds/packages/net/curl https://raw.githubusercontent.com/openwrt/packages/master/net/curl/Makefile
 
@@ -259,7 +259,7 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/dockerd/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=cfb1029b48fd7ab2d03bddb55909a196e0f516b3e5495a033dfbfe00fe9fadad/g' feeds/packages/utils/dockerd/Makefile
 #sed -i 's/PKG_GIT_SHORT_COMMIT:=87a90dc/PKG_GIT_SHORT_COMMIT:=4433bf6/g' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.0/g' feeds/packages/utils/docker-compose/Makefile
@@ -272,9 +272,9 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 #cp -f general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.1/g' feeds/packages/utils/runc/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=11a34535c108b36fd59de58e7bef3a130444c9ea41e4b8bb8f8d4654c8ad654c/g' feeds/packages/utils/runc/Makefile
-#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=52de29d7e0f8c0899bd7efb8810dd07f0073fa87/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.2/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=0ccce82b1d9c058d8fd7443d261c96fd7a803f2775bcb1fec2bdb725bc7640f6/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=a916309fff0f838eb94e928713dbc3c0d0ac7aa4/g' feeds/packages/utils/runc/Makefile
 
 # bsdtar
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.6.1/g' feeds/packages/libs/libarchive/Makefile
@@ -332,10 +332,11 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.5/g' feeds/packages/utils/parted/Makefi
 sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=336fde60786d5855b3876ee49ef1e6b2/g' feeds/packages/utils/parted/Makefile
 
 # wolfSSL
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.2.0-stable/g' package/libs/wolfssl/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=409b4646c5f54f642de0e9f3544c3b83de7238134f5b1ff93fb44527bf119d05/g' package/libs/wolfssl/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.3.0-stable/g' package/libs/wolfssl/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=1a3bb310dc01d3e73d9ad91b6ea8249d081016f8eef4ae8f21d3421f91ef1de9/g' package/libs/wolfssl/Makefile
 #rm -rf package/libs/wolfssl
 #cp -rf general/wolfssl package/libs
+rm -f package/libs/wolfssl/patches/{300,400}*.patch
 
 # ustream-ssl
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/ustream-ssl/Makefile
