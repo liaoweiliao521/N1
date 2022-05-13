@@ -103,6 +103,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/s
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2tcp package/dns2tcp
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
@@ -310,8 +311,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d82902400405cf0068574ef3dc1fe5f5926207543ba1ae6
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.5/g' feeds/packages/lang/php8/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=7647734b4dcecd56b7e4bd0bc55e54322fa3518299abcdc68eb557a7464a2e8a/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.6/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=da38d65bb0d5dd56f711cd478204f2b62a74a2c2b0d2d523a78d6eb865b2364c/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
@@ -740,6 +741,8 @@ cp -r general/boost feeds/packages/libs
 # fix luci-theme-opentomcat dockerman icon missing
 rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
 cp general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
+sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
+sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 
 # zsh
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.8.1/g' feeds/packages/utils/zsh/Makefile
