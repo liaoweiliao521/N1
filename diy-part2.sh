@@ -180,8 +180,8 @@ svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-n
 #rm -rf lean/luci-app-docker/root/www
 
 # samba4
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.14.10/g' feeds/packages/net/samba4/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=107ee862f58062682cec362ec68a24251292805f89aa4c97e7ab80237f91c7af/g' feeds/packages/net/samba4/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.14.13/g' feeds/packages/net/samba4/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=e1df792818a17d8d21faf33580d32939214694c92b84fb499464210d86a7ff75/g' feeds/packages/net/samba4/Makefile
 
 # ffmpeg
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0/g' feeds/packages/multimedia/ffmpeg/Makefile
@@ -250,16 +250,16 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=294871ab1864a65d0b74325e9219d5bcd6e91c34a3c59270c357bb9ae4d5c393/g' package/libs/mbedtls/Makefile
 
 # docker
-sed -i 's/PKG_VERSION:=20.10.15/PKG_VERSION:=20.10.16/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_VERSION:=20.10.15/PKG_VERSION:=20.10.16/g' feeds/packages/utils/docker/Makefile
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=af34131b1f08a068906336092a4dc3dfd8921c8039528cb698b32491951c33e2/g' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=fd82621/PKG_GIT_SHORT_COMMIT:=aa7e414/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=af34131b1f08a068906336092a4dc3dfd8921c8039528cb698b32491951c33e2/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=fd82621/PKG_GIT_SHORT_COMMIT:=aa7e414/g' feeds/packages/utils/docker/Makefile
 
 # dockerd
-sed -i 's/PKG_VERSION:=20.10.15/PKG_VERSION:=20.10.16/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_VERSION:=20.10.15/PKG_VERSION:=20.10.16/g' feeds/packages/utils/dockerd/Makefile
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2cd69e2cc67053300aa8d78988c92fd63ea0d0d84fe2071597191a149d5548f8/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=4433bf6/PKG_GIT_SHORT_COMMIT:=f756502/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=2cd69e2cc67053300aa8d78988c92fd63ea0d0d84fe2071597191a149d5548f8/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=4433bf6/PKG_GIT_SHORT_COMMIT:=f756502/g' feeds/packages/utils/dockerd/Makefile
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
@@ -270,12 +270,13 @@ sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=skip/g' feeds/packages/utils/containerd/Makefile
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=3df54a852345ae127d1fa3092b95168e4a88e2f8/g' feeds/packages/utils/containerd/Makefile
-#cp -f general/containerd/Makefile feeds/packages/utils/containerd
+cp -f general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.2/g' feeds/packages/utils/runc/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=0ccce82b1d9c058d8fd7443d261c96fd7a803f2775bcb1fec2bdb725bc7640f6/g' feeds/packages/utils/runc/Makefile
 sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=a916309fff0f838eb94e928713dbc3c0d0ac7aa4/g' feeds/packages/utils/runc/Makefile
+#sed -i '12d' feeds/packages/utils/runc/Makefile
 
 # bsdtar
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.6.1/g' feeds/packages/libs/libarchive/Makefile
@@ -535,9 +536,9 @@ cp -rf general/at feeds/packages/utils
 # mmc-utils
 #rm -rf feeds/packages/utils/mmc-utils
 #svn co https://github.com/openwrt/packages/trunk/utils/mmc-utils feeds/packages/utils/mmc-utils
-sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-04-17/g' feeds/packages/utils/mmc-utils/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=b7e4d5a6ae9942d26a11de9b05ae7d52c0802802/g' feeds/packages/utils/mmc-utils/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=7865294ec7619d6696bb06a6e2ad4a3803a0bfbd9754b7d0d617bfb30ab828a1/g' feeds/packages/utils/mmc-utils/Makefile
+#sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-04-17/g' feeds/packages/utils/mmc-utils/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=b7e4d5a6ae9942d26a11de9b05ae7d52c0802802/g' feeds/packages/utils/mmc-utils/Makefile
+#sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=7865294ec7619d6696bb06a6e2ad4a3803a0bfbd9754b7d0d617bfb30ab828a1/g' feeds/packages/utils/mmc-utils/Makefile
 
 # nfs-kernel-server
 rm -rf feeds/packages/net/nfs-kernel-server
@@ -653,9 +654,9 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/nginx/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581af31df697551f3bfe/g' feeds/packages/net/nginx/Makefile
 
 # openssl
-sed -i 's/PKG_BUGFIX:=.*/PKG_BUGFIX:=o/g' package/libs/openssl/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/openssl/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=9384a2b0570dd80358841464677115df785edb941c71211f75076d72fe6b438f/g' package/libs/openssl/Makefile
+#sed -i 's/PKG_BUGFIX:=.*/PKG_BUGFIX:=o/g' package/libs/openssl/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/openssl/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=9384a2b0570dd80358841464677115df785edb941c71211f75076d72fe6b438f/g' package/libs/openssl/Makefile
 
 # 修改makefile
 #find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's|include\ \.\.\/\.\.\/devel/meson/meson.mk|include \$(INCLUDE_DIR)\/meson.mk|g' {}
@@ -686,8 +687,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36/g' package/luci-app-smartdns/Ma
 # icu
 #rm -rf feeds/packages/libs/icu
 #svn co https://github.com/openwrt/packages/trunk/libs/icu feeds/packages/libs/icu
-sed -i 's/MAJOR_VERSION:=.*/MAJOR_VERSION:=71/g' feeds/packages/libs/icu/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=67a7e6e51f61faf1306b6935333e13b2c48abd8da6d2f46ce6adca24b1e21ebf/g' feeds/packages/libs/icu/Makefile
+#sed -i 's/MAJOR_VERSION:=.*/MAJOR_VERSION:=71/g' feeds/packages/libs/icu/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=67a7e6e51f61faf1306b6935333e13b2c48abd8da6d2f46ce6adca24b1e21ebf/g' feeds/packages/libs/icu/Makefile
 
 # ucode
 #cp -rf general/ucode package/utils
@@ -765,9 +766,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=c4d91be36fc8e54deae7575241e03f4211eb102afb3fc07
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=4bb815e9c9a4588fce20c6ef33168f0ceb1f420937c4dcf03ce085666328043a/g' feeds/packages/net/frp/Makefile
 
 # openconnect
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/openconnect/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=c1452384c6f796baee45d4e919ae1bfc281d6c88862e1f646a2cc513fc44e58b/g' feeds/packages/net/openconnect/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/openconnect/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=c1452384c6f796baee45d4e919ae1bfc281d6c88862e1f646a2cc513fc44e58b/g' feeds/packages/net/openconnect/Makefile
 
 # xtables-addons
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.19/g' feeds/packages/net/xtables-addons/Makefile
@@ -780,8 +781,9 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/libs/libssh2/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51/g' feeds/packages/libs/libssh2/Makefile
 
 # gnutls
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.7.3/g' feeds/packages/libs/gnutls/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=fc59c43bc31ab20a6977ff083029277a31935b8355ce387b634fa433f8f6c49a/g' feeds/packages/libs/gnutls/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.7.5/g' feeds/packages/libs/gnutls/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=1f85028475b4f255cc5b480af0c37e61eab43024c1507c8b75d6be506c0553ad/g' feeds/packages/libs/gnutls/Makefile
+sed -i 's/libzstd/zstd/g' feeds/packages/libs/gnutls/Makefile
 #rm -rf feeds/packages/libs/gnutls
 #svn co https://github.com/breakings/packages/branches/gnutls/libs/gnutls feeds/packages/libs/gnutls
 
