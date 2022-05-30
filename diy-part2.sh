@@ -707,7 +707,7 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/view/
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=98.0.4758.80-2/g' package/naiveproxy/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=687a1c43f5bff61b2c1857d65031a5234af358053cf00e20911b75b073e55df4/g' package/naiveproxy/Makefile
 #rm -rf package/naiveproxy/patches
-#cp -f general/naiveproxy/Makefile package/naiveproxy
+cp -f general/naiveproxy/Makefile package/naiveproxy
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
@@ -764,8 +764,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=c4d91be36fc8e54deae7575241e03f4211eb102afb3fc07
 #cp -r general/coreutils feeds/packages/utils
 
 # frp
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.42.0/g' feeds/packages/net/frp/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=4bb815e9c9a4588fce20c6ef33168f0ceb1f420937c4dcf03ce085666328043a/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.43.0/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=8e243ab85a0e70b94eec60f6fd9bae23d45d742739cfb9406de5f3fd7f317b03/g' feeds/packages/net/frp/Makefile
 
 # openconnect
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile
@@ -783,8 +783,8 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/libs/libssh2/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51/g' feeds/packages/libs/libssh2/Makefile
 
 # gnutls
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.7.5/g' feeds/packages/libs/gnutls/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=1f85028475b4f255cc5b480af0c37e61eab43024c1507c8b75d6be506c0553ad/g' feeds/packages/libs/gnutls/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.7.6/g' feeds/packages/libs/gnutls/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=77065719a345bfb18faa250134be4c53bef70c1bd61f6c0c23ceb8b44f0262ff/g' feeds/packages/libs/gnutls/Makefile
 sed -i 's/libzstd/zstd/g' feeds/packages/libs/gnutls/Makefile
 #rm -rf feeds/packages/libs/gnutls
 #svn co https://github.com/breakings/packages/branches/gnutls/libs/gnutls feeds/packages/libs/gnutls
