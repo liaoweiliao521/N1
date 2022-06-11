@@ -45,7 +45,7 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 #cp -rf PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
 
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
 #添加额外软件包
 #git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
@@ -310,8 +310,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d82902400405cf0068574ef3dc1fe5f5926207543ba1ae6
 # openvpn
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.6/g' feeds/packages/net/openvpn/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=13c7c3dc399d1b571cabf189c4d34ae34656ee72b6bde2a8059c1e9bc61574ed/g' feeds/packages/net/openvpn/Makefile
-rm -rf feeds/packages/net/openvpn
-cp -rf general/openvpn feeds/packages/net
+#rm -rf feeds/packages/net/openvpn
+#cp -rf general/openvpn feeds/packages/net
 
 # php8
 #rm -rf feeds/packages/lang/php8
@@ -785,9 +785,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=8e243ab85a0e70b94eec60f6fd9bae23d45d742739cfb94
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=c1452384c6f796baee45d4e919ae1bfc281d6c88862e1f646a2cc513fc44e58b/g' feeds/packages/net/openconnect/Makefile
 
 # xtables-addons
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.20/g' feeds/packages/net/xtables-addons/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/xtables-addons/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=359d625658ecc2190b9f164e067d83070a949ac64f81fcddd484be5d14fa116e/g' feeds/packages/net/xtables-addons/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.20/g' feeds/packages/net/xtables-addons/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/xtables-addons/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=359d625658ecc2190b9f164e067d83070a949ac64f81fcddd484be5d14fa116e/g' feeds/packages/net/xtables-addons/Makefile
 
 # libssh2
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.10.0/g' feeds/packages/libs/libssh2/Makefile
